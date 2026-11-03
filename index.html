@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <title>document</title>
+  </head>
+  <body>
+    <main id="main">
+      <p class="main__p">____ شاخص توده بدنی ، محاسبه BMI ____</p>
+      <form>
+        <div class="main__contain1">
+          <label class="main__label" for="main__input1">قد (سانتی متر)</label>
+          <input type="text" id="main__input1" />
+        </div>
+        <div class="main__contain1">
+          <label class="main__label" for="main__input2">وزن (کیلوگرم)</label>
+          <input type="text" id="main__input2" />
+        </div>
+        <div class="main__radio1">
+          <input type="radio" id="radio1" name="age" value="adult"/>
+          <label for="radio1">سن 19 سال یا بالاتر</label>
+        </div>
+        <div class="main__radio1">
+          <input type="radio" id="radio2" name="age" value="teen"/>
+          <label for="radio2">سن کمتر از 19 سال</label>
+        </div>
+        <div class="main-content">
+          <p>______________</p>
+          <button class="button" type="submit">ارسال</button>
+        </div>
+        <p id="result"></p>
+      </form>
+    </main>
+    <script src="script.js"></script>
+  </body>
+</html>
