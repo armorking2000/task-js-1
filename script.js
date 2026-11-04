@@ -1,7 +1,7 @@
 let height = "";
 let weight = "";
-let bmi = (weight) / (height * height);
-console.log("BMI" , bmi);
+let bmi = weight / (height * height);
+console.log("BMI", bmi);
 const form = document.querySelector("form");
 const heightInput = document.getElementById("main__input1");
 const weightInput = document.getElementById("main__input2");
