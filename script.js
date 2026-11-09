@@ -1,30 +1,30 @@
-let height = "";
-let weight = "";
-let bmi = weight / (height * height);
-console.log("BMI", bmi);
+const inputHeight = document.getElementById("main__input1");
+const inputWeight = document.getElementById("main__input2");
+const bmiText = document.getElementById("result");
 const form = document.querySelector("form");
-const heightInput = document.getElementById("main__input1");
-const weightInput = document.getElementById("main__input2");
-const result = document.getElementById("result");
+function bmiCalculator(weight, height) {
+  const bmi = weight / (height / 100) ** 2;
+  const bmiResult = bmi.toFixed(1);
+  let status;
+  if (bmiResult < 18.5) {
+    status = "لاغری";
+  } else if (bmiResult > 18.5 && bmiResult < 25) {
+    status = "نرمال";
+  } else if (bmiResult > 25 && bmiResult < 30) {
+    status = "اضافه وزن";
+  } else {
+    status = "چاقی";
+  }
+  bmiText.textContent = `BMI شما ${bmiResult} است : ${status}`;
+}
 form.addEventListener("submit", (e) => {
   e.preventDefault();
-  const height = Number(heightInput.value) / 100;
-  const weight = Number(weightInput.value);
-  const age = document.querySelector('input[name="age"]:checked');
-  if (!height || !weight || height <= 0 || weight <= 0) {
-    result.textContent = "لطفاً قد و وزن را درست وارد کنید.";
+  const height = Number(inputHeight.value);
+  const weight = Number(inputWeight.value);
+  const selected = document.querySelector("input[name=age]:checked");
+  if (!selected) {
+    bmiText.textContent = "لطفاً گروه سنی را انتخاب کنید";
     return;
   }
-  const bmi = weight / (height * height);
-  const bmiText = bmi.toFixed(1);
-  if (age && age.value === "adult") {
-    let status;
-    if (bmi < 18.5) status = "کم‌وزن";
-    else if (bmi < 25) status = "وزن نرمال";
-    else if (bmi < 30) status = "اضافه‌وزن";
-    else status = "چاقی";
-    result.textContent = `BMI شما ${bmiText} است: ${status}`;
-  } else {
-    result.textContent = `BMI شما ${bmiText} است . باید توسط پزشک معاینه شوید`;
-  }
+  bmiCalculator(weight, height, selected.value);
 });
